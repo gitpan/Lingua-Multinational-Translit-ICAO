@@ -1,9 +1,9 @@
 --- #YAML:1.0
 name:                Lingua-Multinational-Translit-ICAO
-version:             1.01
+version:             1.02
 abstract:            Multinational characters transliteration into ICAO Doc 9303
 license:             perl
-generated_by:        ExtUtils::MakeMaker version 6.31
+generated_by:        ExtUtils::MakeMaker version 6.36
 distribution_type:   module
 requires:     
     Text::Iconv:                   1.4
