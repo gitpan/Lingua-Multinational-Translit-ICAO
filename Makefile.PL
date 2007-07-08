@@ -11,7 +11,6 @@ WriteMakefile(
   'VERSION_FROM'  => 'ICAO.pm',
   'LICENSE'       => 'perl',
   'PREREQ_PM' => {
-    'Text::Iconv' => 1.4,
+    'Encode' => 0,
   },
-
 );

@@ -1,2 +1,6 @@
+#  1.04  2007/07/07 use Encode in preference of Text::Iconv (thanks to Nikita Dedik)
+#                                   Rate Text::Iconv      Encode
+#                    Text::Iconv 13243/s          --        -41%
+#                    Encode      22386/s         69%          --
 #  1.02  2007/07/05 use 5.8.0 added
 #  1.01  2007/07/04 Initial revision

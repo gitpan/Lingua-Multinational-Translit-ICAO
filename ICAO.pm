@@ -6,6 +6,10 @@
 # under the same terms as Perl itself.
 
 # History:
+#  1.04  2007/07/07 use Encode in preference of Text::Iconv (thanks to Nikita Dedik)
+#                                   Rate Text::Iconv      Encode
+#                    Text::Iconv 13243/s          --        -41%
+#                    Encode      22386/s         69%          --
 #  1.02  2007/07/05 use 5.8.0 added
 #  1.01  2007/07/04 Initial revision
 
@@ -38,14 +42,14 @@ use warnings;
 use 5.8.0;
 use utf8;
 
-use Text::Iconv;
+use Encode;
 
 our @EXPORT      = qw/ /;
 our @EXPORT_OK   = qw/ ml2icao /;
 our %EXPORT_TAGS = qw / /;
 our @ISA = qw/Exporter/;
 
-our $VERSION = "1.02";
+our $VERSION = "1.04";
 
 my $table = q!1 1
 Á A
@@ -243,12 +247,10 @@ sub ml2icao {
   my $lang = shift;
   my $enc = shift;
   if ($enc) {
-    my $converter = Text::Iconv->new($enc, "utf-8");
-    $val = $converter->convert($val);
+    $val = Encode::decode($enc, $val);
   } # else think of utf-8
-  my $res = '';
   utf8::decode($val);
-#  foreach (split //, $val) {  -- benchmarks say it's slower...
+  my $res = '';
   foreach (0 .. length $val) {
     $_ = substr($val, $_, 1);
     $_ = $ml2icao{$_} if defined $ml2icao{$_};
