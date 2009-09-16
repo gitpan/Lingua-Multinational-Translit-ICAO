@@ -1,6 +1,8 @@
 use strict;
 use warnings;
-use 5.8.0;
+use 5.008;
+
+# $Id: Makefile.PL 6 2009-09-16 15:37:46Z stro $ 
 
 use ExtUtils::MakeMaker;
 

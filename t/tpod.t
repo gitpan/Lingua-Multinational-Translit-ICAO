@@ -1,6 +1,9 @@
 #!/usr/bin/env perl -w
 
+# $Id: tpod.t 6 2009-09-16 15:37:46Z stro $
+
 use strict;
+use warnings;
 
 eval 'use Test::More';
 if ($@) {
